@@ -1,5 +1,5 @@
 ### A-B_testing_exercises
-A/B testing practices in R including 
+A/B testing practices from BA830 including 
   * Treatment Effect
   * Control Variables
   * Randomization
