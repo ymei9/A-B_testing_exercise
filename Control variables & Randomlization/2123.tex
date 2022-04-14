@@ -1,0 +1,611 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Assignment 3 Notebook},
+  pdfauthor={Yuxuan Mei},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{booktabs}
+\usepackage{siunitx}
+\newcolumntype{d}{S[input-symbols = ()]}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{Assignment 3 Notebook}
+\author{Yuxuan Mei}
+\date{}
+
+\begin{document}
+\maketitle
+
+\hypertarget{please-read-this-code-before-starting.-there-are-several-ways-to-run-regressions-in-r.-id-like-us-to-use-the-function-feols-with-the-option-se-white.-we-will-discuss-this-in-class.}{%
+\subsubsection{Please read this code before starting. There are several
+ways to run regressions in R. I'd like us to use the function `feols'
+with the option se = `white'. We will discuss this in
+class.}\label{please-read-this-code-before-starting.-there-are-several-ways-to-run-regressions-in-r.-id-like-us-to-use-the-function-feols-with-the-option-se-white.-we-will-discuss-this-in-class.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Code that shows how different regression functions work:}
+\NormalTok{this\_reg\_lm }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(racism.scores.post}\FloatTok{.2}\NormalTok{mon }\SpecialCharTok{\textasciitilde{}}\NormalTok{ any\_treatment, }
+                  \AttributeTok{data =}\NormalTok{ tweets\_data)}
+
+\NormalTok{this\_reg\_feols }\OtherTok{\textless{}{-}} \FunctionTok{feols}\NormalTok{(racism.scores.post}\FloatTok{.2}\NormalTok{mon }\SpecialCharTok{\textasciitilde{}}\NormalTok{ any\_treatment, }
+                        \AttributeTok{data =}\NormalTok{ tweets\_data)}
+
+\NormalTok{this\_reg\_feols\_robust }\OtherTok{\textless{}{-}} \FunctionTok{feols}\NormalTok{(racism.scores.post}\FloatTok{.2}\NormalTok{mon }\SpecialCharTok{\textasciitilde{}}\NormalTok{ any\_treatment, }
+                               \AttributeTok{data =}\NormalTok{ tweets\_data, }\AttributeTok{se =} \StringTok{\textquotesingle{}white\textquotesingle{}}\NormalTok{)}
+
+\CommentTok{\# this\_reg\_feols\_inter \textless{}{-} feols(racism.scores.post.2mon \textasciitilde{} any\_treatment*anonymity, }
+\CommentTok{\#                               data = tweets\_data)}
+
+\CommentTok{\# }
+\FunctionTok{modelsummary}\NormalTok{(}\FunctionTok{list}\NormalTok{(this\_reg\_lm, this\_reg\_feols, this\_reg\_feols\_robust))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+\centering
+\begin{tabular}[t]{lccc}
+\toprule
+  & Model 1 & Model 2 & Model 3\\
+\midrule
+(Intercept) & \num{0.252} & \num{0.252} & \num{0.252}\\
+ & (\num{0.054}) & (\num{0.054}) & (\num{0.063})\\
+any\_treatment & \num{-0.083} & \num{-0.083} & \num{-0.083}\\
+ & (\num{0.060}) & (\num{0.060}) & (\num{0.069})\\
+\midrule
+Num.Obs. & \num{243} & \num{243} & \num{243}\\
+R2 & \num{0.008} & \num{0.008} & \num{0.008}\\
+R2 Adj. & \num{0.004} & \num{0.004} & \num{0.004}\\
+R2 Within &  &  & \\
+R2 Pseudo &  &  & \\
+AIC & \num{231.2} & \num{229.2} & \num{229.2}\\
+BIC & \num{241.7} & \num{236.2} & \num{236.2}\\
+Log.Lik. & \num{-112.617} & \num{-112.617} & \num{-112.617}\\
+F & \num{1.877} &  & \\
+Std.Errors &  & IID & Heteroskedasticity-robust\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# }
+\FunctionTok{modelsummary}\NormalTok{(}\FunctionTok{list}\NormalTok{(this\_reg\_lm, this\_reg\_feols, this\_reg\_feols\_robust), }
+             \AttributeTok{coef\_map =} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}any\_treatment\textquotesingle{}} \OtherTok{=} \StringTok{\textquotesingle{}Treatment\textquotesingle{}}\NormalTok{,}
+                \StringTok{\textquotesingle{}anonymity\textquotesingle{}} \OtherTok{=} \StringTok{\textquotesingle{}Anonymity\textquotesingle{}}\NormalTok{,}
+                \StringTok{\textquotesingle{}any\_treatment:anonymity\textquotesingle{}} \OtherTok{=} \StringTok{\textquotesingle{}Treatment * Anon.\textquotesingle{}}\NormalTok{,}
+                \StringTok{\textquotesingle{}(Intercept)\textquotesingle{}} \OtherTok{=} \StringTok{\textquotesingle{}Constant\textquotesingle{}}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+\centering
+\begin{tabular}[t]{lccc}
+\toprule
+  & Model 1 & Model 2 & Model 3\\
+\midrule
+Treatment & \num{-0.083} & \num{-0.083} & \num{-0.083}\\
+ & (\num{0.060}) & (\num{0.060}) & (\num{0.069})\\
+Constant & \num{0.252} & \num{0.252} & \num{0.252}\\
+ & (\num{0.054}) & (\num{0.054}) & (\num{0.063})\\
+\midrule
+Num.Obs. & \num{243} & \num{243} & \num{243}\\
+R2 & \num{0.008} & \num{0.008} & \num{0.008}\\
+R2 Adj. & \num{0.004} & \num{0.004} & \num{0.004}\\
+R2 Within &  &  & \\
+R2 Pseudo &  &  & \\
+AIC & \num{231.2} & \num{229.2} & \num{229.2}\\
+BIC & \num{241.7} & \num{236.2} & \num{236.2}\\
+Log.Lik. & \num{-112.617} & \num{-112.617} & \num{-112.617}\\
+F & \num{1.877} &  & \\
+Std.Errors &  & IID & Heteroskedasticity-robust\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\hypertarget{a-of-the-above-variables-please-identify-all-that-may-be-good-control-variables-in-a-regression-where-the-outcome-is}{%
+\section{1.a: Of the above variables, please identify all that may be
+`good' control variables in a regression where the outcome
+is}\label{a-of-the-above-variables-please-identify-all-that-may-be-good-control-variables-in-a-regression-where-the-outcome-is}}
+
+\hypertarget{racism.scores.post.2mon-and-the-regressor-is-any_treatment}{%
+\section{`racism.scores.post.2mon' and the regressor is
+`any\_treatment'?}\label{racism.scores.post.2mon-and-the-regressor-is-any_treatment}}
+
+\hypertarget{note-by-good-control-variables-i-mean-those-which-do-not-prevent-a-causal-interpretation-of-the-coefficient-on-treatment.}{%
+\section{Note: By good control variables, I mean those which do not
+prevent a causal interpretation of the coefficient on
+treatment.}\label{note-by-good-control-variables-i-mean-those-which-do-not-prevent-a-causal-interpretation-of-the-coefficient-on-treatment.}}
+
+Good control variables include anonymity, log.followers, and
+racism.scores.pre.2mon
+
+\hypertarget{b-run-a-regression-of-racism.scores.post.2mon-on-any_treatment.-what-do-we-learn-from-this-regression-about-the-effect-of-the-treatment-please-explain-in-words-in-addition-to-just-returning-the-number.}{%
+\section{1.b: Run a regression of `racism.scores.post.2mon' on
+`any\_treatment'. What do we learn from this regression about the effect
+of the treatment? Please explain in words in addition to just returning
+the
+number.}\label{b-run-a-regression-of-racism.scores.post.2mon-on-any_treatment.-what-do-we-learn-from-this-regression-about-the-effect-of-the-treatment-please-explain-in-words-in-addition-to-just-returning-the-number.}}
+
+Below is an example regression and how you should output it. In this
+regression, our outcome variable is `anonymity' and our explanatory
+variable is `log.followers'. This regression tells us whether there is
+correlation between anonymous twitter accounts and those who have a lot
+of followers (in our dataset).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{reg\_anon\_followers }\OtherTok{\textless{}{-}} \FunctionTok{feols}\NormalTok{(anonymity }\SpecialCharTok{\textasciitilde{}}\NormalTok{ log.followers, }\AttributeTok{data =}\NormalTok{ tweets\_data, }\AttributeTok{se =} \StringTok{\textquotesingle{}white\textquotesingle{}}\NormalTok{)}
+\FunctionTok{summary}\NormalTok{(reg\_anon\_followers)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## OLS estimation, Dep. Var.: anonymity
+## Observations: 243 
+## Standard-errors: Heteroskedasticity-robust 
+##               Estimate Std. Error   t value  Pr(>|t|)    
+## (Intercept)   1.450842   0.112335 12.915350 < 2.2e-16 ***
+## log.followers 0.017652   0.018119  0.974223   0.33092    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## RMSE: 0.678691   Adj. R2: -0.001692
+\end{verbatim}
+
+Repeat the above exercise, but to answer question 1.b.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{reg\_score\_treat }\OtherTok{\textless{}{-}} \FunctionTok{feols}\NormalTok{(racism.scores.post}\FloatTok{.2}\NormalTok{mon }\SpecialCharTok{\textasciitilde{}}\NormalTok{ any\_treatment, }\AttributeTok{data=}\NormalTok{tweets\_data, }\AttributeTok{se=}\StringTok{\textquotesingle{}white\textquotesingle{}}\NormalTok{)}
+\FunctionTok{summary}\NormalTok{(reg\_score\_treat)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## OLS estimation, Dep. Var.: racism.scores.post.2mon
+## Observations: 243 
+## Standard-errors: Heteroskedasticity-robust 
+##                Estimate Std. Error  t value   Pr(>|t|)    
+## (Intercept)    0.252171   0.063377  3.97891 9.1629e-05 ***
+## any_treatment -0.082774   0.068648 -1.20578 2.2908e-01    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## RMSE: 0.384622   Adj. R2: 0.003613
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Without any treatment, the racist score after 2 month of the experiment of an account is expected to be 0.25, and the p value of the intercept is very small, which suggest that the intercept is highly statistically significant and we can reject the null hypothesis.}
+
+\CommentTok{\# The racist score after 2 month of the experiment of an account is expected to decrease by 0.08 if there\textquotesingle{}s any treatment. However, there\textquotesingle{}s a relatively large standard error, and the p{-}value of the slope is 0.23, which suggest that the coefficient is not statistically significant (the treatment effect is not statistically significant from 0), and we fail to reject the null hypothesis. }
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{c-add-the-variables-from-a-as-controls-into-the-regression-from-b.-what-happens-to-our-estimate-of-the-effect-of-the-treatment-and-its-standard-error-why-does-this-happen-in-words}{%
+\section{1.c Add the variables from a) as controls into the regression
+from b). What happens to our estimate of the effect of the treatment and
+its standard error? Why does this happen in
+words?}\label{c-add-the-variables-from-a-as-controls-into-the-regression-from-b.-what-happens-to-our-estimate-of-the-effect-of-the-treatment-and-its-standard-error-why-does-this-happen-in-words}}
+
+\hypertarget{hint-we-can-do-this-by-comparing-the-pre-treatment-outcomes-between-the-treatment-and-control-group.-if-there-are-significant-differences-then-there-may-be-a-problem-with-the-experiment.}{%
+\section{Hint: we can do this by comparing the pre-treatment outcomes
+between the treatment and control group. If there are significant
+differences, then there may be a problem with the
+experiment.}\label{hint-we-can-do-this-by-comparing-the-pre-treatment-outcomes-between-the-treatment-and-control-group.-if-there-are-significant-differences-then-there-may-be-a-problem-with-the-experiment.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{reg\_score\_cong }\OtherTok{\textless{}{-}} \FunctionTok{feols}\NormalTok{(racism.scores.post}\FloatTok{.2}\NormalTok{mon }\SpecialCharTok{\textasciitilde{}}\NormalTok{ any\_treatment }\SpecialCharTok{+}\NormalTok{ anonymity }\SpecialCharTok{+}\NormalTok{ log.followers }\SpecialCharTok{+}\NormalTok{ racism.scores.pre}\FloatTok{.2}\NormalTok{mon, }\AttributeTok{data=}\NormalTok{tweets\_data, }\AttributeTok{se=}\StringTok{\textquotesingle{}white\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## NOTE: 1 observation removed because of NA values (RHS: 1).
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(reg\_score\_cong)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## OLS estimation, Dep. Var.: racism.scores.post.2mon
+## Observations: 242 
+## Standard-errors: Heteroskedasticity-robust 
+##                         Estimate Std. Error   t value   Pr(>|t|)    
+## (Intercept)             0.056823   0.100151  0.567373 5.7100e-01    
+## any_treatment           0.022048   0.045740  0.482039 6.3022e-01    
+## anonymity               0.018068   0.022525  0.802142 4.2327e-01    
+## log.followers          -0.001387   0.016340 -0.084881 9.3243e-01    
+## racism.scores.pre.2mon  0.765946   0.128654  5.953518 9.3934e-09 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## RMSE: 0.328851   Adj. R2: 0.264825
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# The treatment effect coefficient becomes positive 0.02 now from {-}0.08. While the p{-}value of it is still large, therefore the treatment effect is still statistically insignificant. The standard error of the treatment effect was down from 0.068 to 0.046, which means we are now predicting a more accurate treatment effect. This is happening because we added three more control variables to help predict the outcome (racist score post 2 month of experiment). The large change in treatment effect coefficient may suggest that our previous regression does not do a good job in explaining the variances, and the previous treatment effect coefficient is not reliable. }
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{d-use-a-regression-to-check-for-differences-between-the-treatment-and-control-for-one-of-the-variables-identified-in-a.-also-use-the-prop.test-function-to-check-whether-the-randomization-proportion-was-intended.-based-on-these-results-should-we-be-concerned-that-the-randomization-was-done-improperly}{%
+\section{1.d Use a regression to check for differences between the
+treatment and control for one of the variables identified in a). Also
+use the prop.test function to check whether the randomization proportion
+was intended. Based on these results, should we be concerned that the
+randomization was done
+improperly?}\label{d-use-a-regression-to-check-for-differences-between-the-treatment-and-control-for-one-of-the-variables-identified-in-a.-also-use-the-prop.test-function-to-check-whether-the-randomization-proportion-was-intended.-based-on-these-results-should-we-be-concerned-that-the-randomization-was-done-improperly}}
+
+\hypertarget{note-each-arm-of-the-experiment-was-assigned-with-equal-probability-and-there-are-4-treatment-arms-and-one-control.}{%
+\section{Note: Each arm of the experiment was assigned with equal
+probability and there are 4 treatment arms and one
+control.}\label{note-each-arm-of-the-experiment-was-assigned-with-equal-probability-and-there-are-4-treatment-arms-and-one-control.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# check for pre{-}experiment characteristic difference }
+\NormalTok{reg\_tre\_cont }\OtherTok{\textless{}{-}} \FunctionTok{feols}\NormalTok{(racism.scores.pre}\FloatTok{.2}\NormalTok{mon }\SpecialCharTok{\textasciitilde{}}\NormalTok{ any\_treatment, }\AttributeTok{data =}\NormalTok{ tweets\_data , }\AttributeTok{se=}\StringTok{\textquotesingle{}white\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## NOTE: 1 observation removed because of NA values (LHS: 1).
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(reg\_tre\_cont)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## OLS estimation, Dep. Var.: racism.scores.pre.2mon
+## Observations: 242 
+## Standard-errors: Heteroskedasticity-robust 
+##                Estimate Std. Error  t value  Pr(>|t|)    
+## (Intercept)    0.227667   0.070694  3.22046 0.0014568 ** 
+## any_treatment -0.134883   0.071277 -1.89238 0.0596436 .  
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## RMSE: 0.260037   Adj. R2: 0.039434
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# After running a regression of pre experiment racism score on treatment, we found that the treatment effect coefficient has a p{-}value of 0.06, which suggest that it is not statistically significant from 0. Also, we found that the intercept has a very small p{-}value, which suggest that there\textquotesingle{}s a statistically significant difference between the pre{-}experiment racism scores in the treatment and control group (control mean is higher than treatment mean by 0.23). This alone shows that our experiment randomization was done improperly. }
+
+\CommentTok{\# check for proper randomization}
+\FunctionTok{prop.test}\NormalTok{(tweets\_data[treatment\_arm }\SpecialCharTok{==} \DecValTok{0}\NormalTok{, .N], tweets\_data[, .N], }\FloatTok{0.2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  1-sample proportions test with continuity correction
+## 
+## data:  tweets_data[treatment_arm == 0, .N] out of tweets_data[, .N], null probability 0.2
+## X-squared = 0.21631, df = 1, p-value = 0.6419
+## alternative hypothesis: true p is not equal to 0.2
+## 95 percent confidence interval:
+##  0.1652380 0.2719987
+## sample estimates:
+##         p 
+## 0.2139918
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{prop.test}\NormalTok{(tweets\_data[treatment\_arm }\SpecialCharTok{==} \DecValTok{1}\NormalTok{, .N], tweets\_data[, .N], }\FloatTok{0.2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  1-sample proportions test with continuity correction
+## 
+## data:  tweets_data[treatment_arm == 1, .N] out of tweets_data[, .N], null probability 0.2
+## X-squared = 2.5971e-31, df = 1, p-value = 1
+## alternative hypothesis: true p is not equal to 0.2
+## 95 percent confidence interval:
+##  0.1545510 0.2583268
+## sample estimates:
+##         p 
+## 0.2016461
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{prop.test}\NormalTok{(tweets\_data[treatment\_arm }\SpecialCharTok{==} \DecValTok{2}\NormalTok{, .N], tweets\_data[, .N], }\FloatTok{0.2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  1-sample proportions test with continuity correction
+## 
+## data:  tweets_data[treatment_arm == 2, .N] out of tweets_data[, .N], null probability 0.2
+## X-squared = 0.43236, df = 1, p-value = 0.5108
+## alternative hypothesis: true p is not equal to 0.2
+## 95 percent confidence interval:
+##  0.1359232 0.2365598
+## sample estimates:
+##       p 
+## 0.18107
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{prop.test}\NormalTok{(tweets\_data[treatment\_arm }\SpecialCharTok{==} \DecValTok{3}\NormalTok{, .N], tweets\_data[, .N], }\FloatTok{0.2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  1-sample proportions test with continuity correction
+## 
+## data:  tweets_data[treatment_arm == 3, .N] out of tweets_data[, .N], null probability 0.2
+## X-squared = 0.020833, df = 1, p-value = 0.8852
+## alternative hypothesis: true p is not equal to 0.2
+## 95 percent confidence interval:
+##  0.1578606 0.2631865
+## sample estimates:
+##         p 
+## 0.2057613
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{prop.test}\NormalTok{(tweets\_data[treatment\_arm }\SpecialCharTok{==} \DecValTok{4}\NormalTok{, .N], tweets\_data[, .N], }\FloatTok{0.2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  1-sample proportions test with continuity correction
+## 
+## data:  tweets_data[treatment_arm == 4, .N] out of tweets_data[, .N], null probability 0.2
+## X-squared = 0.0002572, df = 1, p-value = 0.9872
+## alternative hypothesis: true p is not equal to 0.2
+## 95 percent confidence interval:
+##  0.1505147 0.2543436
+## sample estimates:
+##         p 
+## 0.1975309
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# All five prop.test shows large p{-}values (larger than 0.05), and we fail to reject the null hypothesis that the true probability of each arm/control group is equal to 0.2.}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{e-bonus-we-would-like-to-know-whether-treatment-arm-2-or-treatment-arm-3-is-statistically-significantly-better-at-reducing-racist-behavior.-perform-a-t.test-or-regression-and-test-for-the-null-hypothesis-that-treatment-arm-2-has-the-same-effect-as-treatment-arm-3.}{%
+\section{1.e BONUS: we would like to know whether treatment arm 2 or
+treatment arm 3 is statistically significantly better at reducing racist
+behavior. Perform a t.test or regression and test for the null
+hypothesis that treatment arm 2 has the same effect as treatment arm
+3.}\label{e-bonus-we-would-like-to-know-whether-treatment-arm-2-or-treatment-arm-3-is-statistically-significantly-better-at-reducing-racist-behavior.-perform-a-t.test-or-regression-and-test-for-the-null-hypothesis-that-treatment-arm-2-has-the-same-effect-as-treatment-arm-3.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data\_t23 }\OtherTok{\textless{}{-}}\NormalTok{ tweets\_data[treatment\_arm }\SpecialCharTok{==} \DecValTok{2} \SpecialCharTok{|}\NormalTok{ treatment\_arm }\SpecialCharTok{==} \DecValTok{3}\NormalTok{]}
+\NormalTok{data\_t23[treatment\_arm }\SpecialCharTok{==} \DecValTok{2}\NormalTok{, if\_t2}\SpecialCharTok{:}\ErrorTok{=} \DecValTok{1}\NormalTok{]}
+\NormalTok{data\_t23[treatment\_arm }\SpecialCharTok{==} \DecValTok{3}\NormalTok{, if\_t2}\SpecialCharTok{:}\ErrorTok{=} \DecValTok{0}\NormalTok{]}
+\NormalTok{reg\_t2\_t3 }\OtherTok{\textless{}{-}} \FunctionTok{feols}\NormalTok{(racism.scores.post}\FloatTok{.2}\NormalTok{mon }\SpecialCharTok{\textasciitilde{}}\NormalTok{ if\_t2, }\AttributeTok{data =}\NormalTok{ data\_t23 , }\AttributeTok{se=}\StringTok{\textquotesingle{}white\textquotesingle{}}\NormalTok{)}
+\FunctionTok{summary}\NormalTok{(reg\_t2\_t3)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## OLS estimation, Dep. Var.: racism.scores.post.2mon
+## Observations: 94 
+## Standard-errors: Heteroskedasticity-robust 
+##             Estimate Std. Error t value   Pr(>|t|)    
+## (Intercept) 0.072903   0.018510 3.93861 0.00015932 ***
+## if_t2       0.066026   0.040623 1.62533 0.10751361    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## RMSE: 0.187822   Adj. R2: 0.019305
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# I created another data table with only arm 2 and 3 samples, and created a dummy column called if\_t2 to represent whether the treatment arm is t2 or t3. From the regression above we can see that the difference in treatment effect between arm 2 and arm 3 (slope) has a p{-}value of 0.11, which suggests that the difference in treatment effect between arm 2 and arm 3 is statistically insignificant.}
+
+\CommentTok{\# However, from 1d we know that the experiment\textquotesingle{}s randomization was not done properly, which might pose unforeseen impact on our conclusion to this question, as experiment arm 2 and experiment arm 3 is not the only difference between those two groups.}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{a-describe-the-treatment-in-the-first-experiment-and-the-unit-of-randomization.-what-share-was-randomized-to-the-treatment}{%
+\section{2.a Describe the treatment in the first experiment and the unit
+of randomization. What share was randomized to the
+treatment?}\label{a-describe-the-treatment-in-the-first-experiment-and-the-unit-of-randomization.-what-share-was-randomized-to-the-treatment}}
+
+(This refers to the experiment conducted in August 2015, the first
+experiment described in the introduction of the paper.)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# The treatment is Back{-}end Fee (BF) strategy, which only shows all the fees after consumers selected tickets and proceeded to the checkout page. 50\% consumers was randomized to the treatment group.}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{b-table-ii-displays-a-randomization-balance-check.-a-randomization-check-is-a-regression-where-the-dependent-variable-occurs-before-the-experiment.-it-should-be-very-unlikely-that-there-are-substantial-differences-in-before-experiment-variables-if-the-experiment-was-done-properly.-suggest-a-variable-not-used-by-the-authors-that-would-be-appropriate-to-include-in-a-balance-check.}{%
+\section{2.b Table II displays a randomization / balance check. A
+randomization check is a regression where the dependent variable occurs
+before the experiment. It should be very unlikely that there are
+substantial differences in before experiment variables if the experiment
+was done properly. Suggest a variable not used by the authors that would
+be appropriate to include in a balance
+check.}\label{b-table-ii-displays-a-randomization-balance-check.-a-randomization-check-is-a-regression-where-the-dependent-variable-occurs-before-the-experiment.-it-should-be-very-unlikely-that-there-are-substantial-differences-in-before-experiment-variables-if-the-experiment-was-done-properly.-suggest-a-variable-not-used-by-the-authors-that-would-be-appropriate-to-include-in-a-balance-check.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Another variable could be the type of devices (mobile, laptop, tablet, desktop) consumers used for browsing the website. Purchasing behavior and pattern may differ depending on the type of devices used. For example, people who use phone to book tickets may not have enough time to use a laptop and cross compare between different tickets and websites, thus may have a higher purchasing rate.}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{c-what-is-the-effect-of-the-treatment-on-the-propensity-to-purchase-at-least-one-product-calculate-the-95-confidence-interval-for-this-estimate.}{%
+\section{2.c What is the effect of the treatment on the Propensity to
+Purchase at least one product? Calculate the 95\% confidence interval
+for this
+estimate.}\label{c-what-is-the-effect-of-the-treatment-on-the-propensity-to-purchase-at-least-one-product-calculate-the-95-confidence-interval-for-this-estimate.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# The treatment effect on the propensity to purchase at least one product is 14.1\%, the 95\% CI is 14.1\% +{-} 1.96 * 0.09\%, which is [13.92, 14.28]}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{d-suppose-the-authors-randomized-by-city-of-the-event.-name-one-benefit-that-may-occur-as-a-result-of-this-randomization-strategy-and-one-harm.}{%
+\section{2.d Suppose the authors randomized by city of the event. Name
+one benefit that may occur as a result of this randomization strategy
+and one
+harm.}\label{d-suppose-the-authors-randomized-by-city-of-the-event.-name-one-benefit-that-may-occur-as-a-result-of-this-randomization-strategy-and-one-harm.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# benefit: clustering randomization captures the spillover effects in the experiment. For example, it could take care of the impact of people comparing prices together.}
+\CommentTok{\# harm: randomizing at city level may cause pre experiment characteristics of the treatment and control group to have larger differences, and this difference may be hard to eliminate or reduce to a very low value.}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{e-suppose-that-you-are-the-product-manager-for-the-monetization-team-at-stubhub.-based-on-the-evidence-presented-above-would-you-launch-the-treatment-to-the-entire-site-the-answer-should-be-1-paragraph.-it-should-consist-of-an-answer-yes-no-and-two-pieces-of-evidence-relating-to-that-recommendation.-case-participation-will-also-constitute-part-of-this-grade.}{%
+\section{2.e Suppose that you are the product manager for the
+monetization team at Stubhub. Based on the evidence presented above,
+would you launch the treatment to the entire site? The answer should be
+1 paragraph. It should consist of an answer (Yes, no), and two pieces of
+evidence relating to that recommendation. Case participation will also
+constitute part of this
+grade.}\label{e-suppose-that-you-are-the-product-manager-for-the-monetization-team-at-stubhub.-based-on-the-evidence-presented-above-would-you-launch-the-treatment-to-the-entire-site-the-answer-should-be-1-paragraph.-it-should-consist-of-an-answer-yes-no-and-two-pieces-of-evidence-relating-to-that-recommendation.-case-participation-will-also-constitute-part-of-this-grade.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Yes, I would recommend to launch the treatment to the entire site. Because there are statistically significant differences between BF and UF in terms of revenue, average seat price, propensity to purchase, etc (positive effects and low standard error). A lot of these variables are related to profitbaility, and even though the 12 month customer churn may decrease, it could be compensated by the increase of revenue and amount of new customers. Another reason is that the covariate balance table shows that at an individual user level, pre experiment user characteristics are very similar, which shows the randomization was likely to be done properly, which helps validate the treatment effect.}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{how-long-did-this-assignment-take-you-to-do-hours-how-hard-was-it-easy-reasonable-hard-too-hard}{%
+\section{How long did this assignment take you to do (hours)? How hard
+was it (easy, reasonable, hard, too
+hard)?}\label{how-long-did-this-assignment-take-you-to-do-hours-how-hard-was-it-easy-reasonable-hard-too-hard}}
+
+About 4.5 hours. It's reasonable.
+
+Returned a LaTex error while kniting, so I had to use the HTML version
+for submission. error message: LaTeX Error: File `siunitx.sty' not
+found.
+
+\end{document}
